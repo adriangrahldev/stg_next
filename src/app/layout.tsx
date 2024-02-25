@@ -17,14 +17,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full bg-gray-100">
+    <html className="h-full bg-gray-200">
       <body className="h-full">
         <div className="flex">
           <Sidebar />
           <div className="min-h-full w-full">
             <Header />
-            <main>
-              <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{children}</div>
+            <main className="bg-gray-200">
+              <div className="mx-auto py-6 sm:px-6 lg:px-8">{children}</div>
             </main>
           </div>
         </div>

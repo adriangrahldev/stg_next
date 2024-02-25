@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { UserIcon, ChartBarIcon, CurrencyDollarIcon, ArrowTrendingUpIcon } from '@heroicons/react/20/solid';
+import { UserIcon, ChartBarIcon, CurrencyDollarIcon, ArrowTrendingUpIcon, UsersIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, BarElement } from "chart.js";
 import { Bar, Doughnut, Line, Pie } from "react-chartjs-2";
@@ -48,9 +48,9 @@ export default function Dashboard() {
       case "totalUsers":
         return <UserIcon className="w-6 h-6 mr-2 text-blue-500" />;
       case "activeUsers":
-        return <ArrowTrendingUpIcon className="w-6 h-6 mr-2 text-green-500" />;
+        return <UsersIcon className="w-6 h-6 mr-2 text-green-500" />;
       case "inactiveUsers":
-        return <ArrowTrendingUpIcon className="w-6 h-6 mr-2 text-red-500" />;
+        return <UsersIcon className="w-6 h-6 mr-2 text-red-500" />;
       case "revenue":
         return <CurrencyDollarIcon className="w-6 h-6 mr-2 text-green-500" />;
       case "expenses":

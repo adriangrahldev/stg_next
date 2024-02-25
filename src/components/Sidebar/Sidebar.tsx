@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog, faTachometerAlt, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faBox, faCog, faDatabase, faDollarSign, faNetworkWired, faTachometerAlt, faUserGroup, faUsers, faWarning } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from 'next/navigation';
 
 
@@ -17,29 +17,49 @@ const Sidebar = () => {
             path: "/",
         },
         {
-            name: "Users",
+            name: "Vendas",
+            icon: faDollarSign,
+            path: "/sales",
+        },
+        {
+            name: "Clientes",
             icon: faUsers,
+            path: "/clients",
+        },
+        {
+            name: "Inventário",
+            icon: faBox,
+            path: "/inventory",
+        },
+        {
+            name: "Usuários",
+            icon: faUserGroup,
             path: "/users",
         },
         {
-            name: "Settings",
+            name: "Serviços",
+            icon: faNetworkWired,
+            path: "/settings",
+        },
+        {
+            name: "Configurações",
             icon: faCog,
             path: "/settings",
         },
     ];
 
     return (
-        <div className="h-screen shadow-md w-64 flex flex-col">
+        <div className="h-screen w-64 flex flex-col">
             <div className="text-sky-950 px-8">
-                <ul className="pt-6 pb-20">
+                <ul className="py-6">
                     <li className="font-extrabold text-2xl">
-                        ST<span className="text-blue-800">Guardian</span>
+                        ST<span className="text-sky-800">Guardian</span>
                     </li>
                 </ul>
-                <ul className="space-y-4 ">
+                <ul className="space-y-4 mt-2 ">
                     {routes.map((route, index) => (
                         <li key={index}>
-                            <Link href={route.path} className={`py-2 px-3 flex items-center rounded-lg hover:bg-sky-800 hover:text-white hover:shadow-md ${isActive(route.path) ? 'bg-sky-800 text-white shadow-md' : ''}`}>
+                            <Link href={route.path} className={`py-1 px-1 flex items-center rounded-lg hover:bg-sky-800 hover:text-white ${isActive(route.path) ? 'bg-sky-800 text-white' : ''}`}>
                                 <FontAwesomeIcon icon={route.icon} width={20} className="mr-2" />
                                 {route.name}
 

@@ -18,12 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`bg-slate-200`}>
       <div className="flex">
         <Sidebar/>
         <div className="flex flex-col w-full">
           <Header/>
-          <main className="p-8">{children}</main>
+          <main className="p-2">{children}</main>
         </div>
       </div>
       </body>

@@ -18,12 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html className="h-full bg-gray-200">
-      <body className="h-full">
-        <div className="flex">
+      <body className="h-screen">
+        <div className="flex h-full">
           <Sidebar />
-          <div className="min-h-full w-full">
+          <div className="w-full h-full">
             <Header />
-            <main className="bg-gray-200">
+            <main className="bg-white rounded-b-md">
               <div className="mx-auto py-6 sm:px-6 lg:px-8">{children}</div>
             </main>
           </div>

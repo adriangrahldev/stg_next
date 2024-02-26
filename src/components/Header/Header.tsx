@@ -96,7 +96,7 @@ const Header = () => {
 
 
     return (
-            <Disclosure as="nav" className="bg-gray-200">
+            <Disclosure as="nav" className="bg-white">
                 {({ open }) => (
                     <>
                         <div className=" sm:px-6 lg:px-8">

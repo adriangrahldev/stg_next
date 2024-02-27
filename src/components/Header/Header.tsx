@@ -1,6 +1,6 @@
 "use client"
 import { faDollarSign, faPersonCirclePlus, faPlus, faUserCircle, faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { Fragment } from 'react';
+import { Fragment, use, useEffect } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, CogIcon, LockClosedIcon, UserIcon, XMarkIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image';
@@ -19,7 +19,7 @@ const callsToAction = [
 const Header = () => {
     const pathname = usePathname();
 
-    const [user, pending] = useUser();
+    const { user, authStatus, error, pending } = useUser();
     const navigation = [
         {
             name: "Ventas",
@@ -93,6 +93,8 @@ const Header = () => {
     ];
 
 
+
+
     return (
         pathname.split("/")[1] === "auth" ? null : (
 
@@ -131,15 +133,22 @@ const Header = () => {
                                             <span className="absolute -inset-1.5" />
                                             <span className="sr-only">View notifications</span>
                                             <BellIcon className="h-6 w-6" aria-hidden="true" />
+                                            <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-400">
+                                                <span className="sr-only">Unread notifications</span>
+                                            </span>
                                         </button>
 
                                         {/* Profile dropdown */}
                                         <Menu as="div" className="relative ml-3">
                                             <div>
-                                                <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                                <Menu.Button className="relative flex max-w-xs items-center pe-3 rounded-full bg-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 text-sky-950 font-semibold">
                                                     <span className="absolute -inset-1.5" />
                                                     <span className="sr-only">Open user menu</span>
-                                                    <FontAwesomeIcon icon={faUserCircle} className="h-8 w-8 rounded-full" />
+                                                    <FontAwesomeIcon icon={faUserCircle} className="h-8 w-8 mr-2 rounded-full" />
+                                                    {user?.firstName} {user?.lastName}
+                                                    {pending ?
+                                                        <div className="w-4 h-4 border-4 border-blue-500 rounded-full animate-spin border-t-transparent"></div>
+                                                        : null}
                                                 </Menu.Button>
                                             </div>
                                             <Transition

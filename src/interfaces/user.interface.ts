@@ -1,6 +1,6 @@
 export interface IUser {
     _id: number;
-    firstNane: string;
+    firstName: string;
     lastName: string;
     username: string;
     email: string;

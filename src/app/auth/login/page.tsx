@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 
 const LoginPage = () => {
     const [token, updateAuthToken] = useAuthToken();
-    const [user, pending] = useUser();
+    const {user, authStatus, pending} = useUser();
     const [loginError, setLoginError] = useState<string | null>(null);
     const router = useRouter();
 
@@ -30,10 +30,10 @@ const LoginPage = () => {
     }
 
     useEffect(() => {
-        if (user && user?._id) {
+        if (authStatus === 'authenticated') {
             router.push('/');
         }
-    }, [user, router]);
+    }, [authStatus, router]);
 
     return (
         <div className="flex justify-center items-center bg-slate-200 h-screen">

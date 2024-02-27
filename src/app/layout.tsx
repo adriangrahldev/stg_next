@@ -16,15 +16,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
-    <html className="h-full bg-gray-200">
+    <html className={`h-full`}>
       <body className="h-screen">
         <div className="flex h-full">
           <Sidebar />
           <div className="w-full h-full">
             <Header />
             <main className="bg-white rounded-b-md">
-              <div className="mx-auto py-6 sm:px-6 lg:px-8">{children}</div>
+              <div className="mx-auto">{children}</div>
             </main>
           </div>
         </div>

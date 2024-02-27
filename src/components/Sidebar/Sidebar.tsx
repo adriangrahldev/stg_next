@@ -49,28 +49,33 @@ const Sidebar = () => {
     ];
 
     return (
-        <div className="h-screen w-64 flex flex-col">
-            <div className="text-sky-950 px-8">
-                <ul className="py-6">
-                    <li className="font-extrabold text-2xl">
-                        ST<span className="text-sky-800">Guardian</span>
-                    </li>
-                </ul>
-                <ul className="space-y-4 mt-2 ">
-                    {routes.map((route, index) => (
-                        <li key={index}>
-                            <Link href={route.path} className={`py-1 px-1 flex items-center rounded-lg hover:bg-sky-800 hover:text-white ${isActive(route.path) ? 'bg-sky-800 text-white' : ''}`}>
-                                <FontAwesomeIcon icon={route.icon} width={20} className="mr-2" />
-                                {route.name}
+        
+            pathname.split("/")[1] === "auth" ? null : (
 
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
+                <div className="h-screen w-64 flex flex-col">
+                    <div className="text-sky-950 px-8">
+                        <ul className="py-6">
+                            <li className="font-extrabold text-2xl">
+                                ST<span className="text-sky-800">Guardian</span>
+                            </li>
+                        </ul>
+                        <ul className="space-y-4 mt-2 ">
+                            {routes.map((route, index) => (
+                                <li key={index}>
+                                    <Link href={route.path} className={`py-1 px-1 flex items-center rounded-lg hover:bg-sky-800 hover:text-white ${isActive(route.path) ? 'bg-sky-800 text-white' : ''}`}>
+                                        <FontAwesomeIcon icon={route.icon} width={20} className="mr-2" />
+                                        {route.name}
+
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
 
 
-            </div>
-        </div>
+                    </div>
+                </div>
+            )
+        
     );
 };
 

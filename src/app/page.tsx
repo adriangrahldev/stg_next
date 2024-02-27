@@ -7,10 +7,14 @@ import { Bar, Doughnut, Line, Pie } from "react-chartjs-2";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign, faListCheck } from '@fortawesome/free-solid-svg-icons';
 import ItemCard from '@/components/dashboard/item-card';
+import useUser from '@/hooks/user';
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, BarElement);
 
 export default function Dashboard() {
+
+  const router = useUser();
+
   const summaryData = {
     totalUsers: 1000,
     activeUsers: 800,
@@ -110,6 +114,8 @@ export default function Dashboard() {
             />
           </div>
         </div>
+
+
       </div>
 
     </div>

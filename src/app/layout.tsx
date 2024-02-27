@@ -24,10 +24,10 @@ export default function RootLayout({
       <body className="h-screen">
         <div className="flex h-full">
           <Sidebar />
-          <div className="w-full h-full">
+          <div className="w-full h-full py-2">
             <Header />
             <main className="bg-white rounded-b-md">
-              <div className="mx-auto">{children}</div>
+              <div className="mx-auto py-6 px-8">{children}</div>
             </main>
           </div>
         </div>

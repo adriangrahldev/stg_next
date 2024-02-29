@@ -101,7 +101,7 @@ const Header = () => {
     return (
         pathname.split("/")[1] === "auth" ? null : (
 
-            <Disclosure as="nav" className="bg-white">
+            <Disclosure as="nav" className="bg-slate-100">
                 {({ open }) => (
                     <>
                         <div className=" sm:px-6 lg:px-8">

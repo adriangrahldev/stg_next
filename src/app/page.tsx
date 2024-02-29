@@ -81,7 +81,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div>
+    <div className='px-7 mt-8'>
       <div className="grid grid-cols-4 gap-4">
 
         {Object.entries(summaryData).map(([key, value]) => (

@@ -29,7 +29,7 @@ export default function RootLayout({
             
             <Header />
 
-            <main className="bg-white rounded-b-md">
+            <main className="bg-white rounded-b-md mx-1">
               <div className="mx-auto">{children}</div>
             </main>
           </div>

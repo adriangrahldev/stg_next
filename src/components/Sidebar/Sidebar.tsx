@@ -52,7 +52,7 @@ const Sidebar = () => {
         
             pathname.split("/")[1] === "auth" ? null : (
 
-                <div className="h-screen w-64 flex flex-col">
+                <div className="h-screen w-64 flex flex-col shadow-lg">
                     <div className="text-sky-950 px-8">
                         <ul className="py-6">
                             <li className="font-extrabold text-2xl">

@@ -1,10 +1,8 @@
 "use client"
 import ClientsTable from "@/components/clients/clients-table";
+import Button from "@/components/controls/button";
 import { IClient } from "@/interfaces/client.interface";
 import { faFileExport, faFileImport, faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Popover } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { useEffect, useState } from "react";
 
 
@@ -41,16 +39,16 @@ const ClientsPage = () => {
     }, []);
 
     return (
-        <div className="w-full">
+        <div className="w-full px-7 my-8">
             <div className="flex justify-between">
                 <div>
                     <h1 className="text-2xl text-sky-900 font-bold">Clientes</h1>
                     <p className="text-sm text-gray-500">Lista de clientes</p>
                 </div>
-                <div>
-                    <button className="bg-sky-800 text-white px-4 py-2 rounded-md"> <FontAwesomeIcon icon={faUserPlus} /> Novo cliente</button>
-                    <button className="bg-gray-300 text-sky-800 px-4 py-2 rounded-md ml-2"> <FontAwesomeIcon icon={faFileImport} /> Importar</button>
-                    <button className="bg-gray-300 text-sky-800 px-4 py-2 rounded-md ml-2"> <FontAwesomeIcon icon={faFileExport} /> Exportar</button>
+                <div className="flex gap-2">
+                    <Button  title="Novo cliente" type="primary" onClick={() => {}} icon={faUserPlus} />
+                    <Button title="Importar" type="secondary" onClick={() => {}} icon={faFileImport} />
+                    <Button title="Exportar" type="secondary" onClick={() => {}} icon={faFileExport} />
                 </div>
             </div>
             <div className="my-6 flex">

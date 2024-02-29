@@ -28,8 +28,8 @@ const useUser = (): { user: IUser | null, pending: boolean, error: string | null
 
                 setUser(data);
                 setAuthStatus('authenticated');
-            } catch (error) {
-                setError(error.message);
+            } catch (error:any) {
+                setError(error?.message);
                 setAuthStatus('unauthorized');
             } finally {
                 setPending(false);

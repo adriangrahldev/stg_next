@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import useUser from '@/hooks/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { SessionProvider, useSession } from 'next-auth/react';
 
 const solutions = [
     { name: 'Perfil', description: '', href: '#', icon: UserIcon },
@@ -19,7 +20,9 @@ const callsToAction = [
 const Header = () => {
     const pathname = usePathname();
 
-    const { user, authStatus, error, pending } = useUser();
+    const session = useSession();
+    
+
     const navigation = [
         {
             name: "Ventas",
@@ -145,8 +148,8 @@ const Header = () => {
                                                     <span className="absolute -inset-1.5" />
                                                     <span className="sr-only">Open user menu</span>
                                                     <FontAwesomeIcon icon={faUserCircle} className="h-8 w-8 mr-2 rounded-full" />
-                                                    {user?.firstName} {user?.lastName}
-                                                    {pending ?
+                                                    {session.data?.user?.firstName} {session.data?.user?.lastName}
+                                                    {session.status === "loading" ?
                                                         <div className="w-4 h-4 border-4 border-blue-500 rounded-full animate-spin border-t-transparent"></div>
                                                         : null}
                                                 </Menu.Button>
@@ -219,8 +222,8 @@ const Header = () => {
                                         <FontAwesomeIcon icon={faUserCircle} className="h-10 w-10 rounded-full" />
                                     </div>
                                     <div className="ml-3">
-                                        <div className="text-base font-medium leading-none text-white">{user?.firstName}</div>
-                                        <div className="text-sm font-medium leading-none text-gray-400">{user?.email}</div>
+                                        <div className="text-base font-medium leading-none text-white">{session?.data?.user?.firstName}</div>
+                                        <div className="text-sm font-medium leading-none text-gray-400">{session.data?.user?.email}</div>
                                     </div>
                                     <button
                                         type="button"

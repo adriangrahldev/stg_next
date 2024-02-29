@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 
-const Button = ({ title, type, onClick, icon, active }: { title: string; type: string; onClick: () => void; icon: any; active?: boolean }) => {
+const ButtonLink = ({ title, type, to, icon, active }: { title: string; type: string; to: string; icon: any; active?: boolean }) => {
     const themeFromType = () => {
         switch (type) {
             case "primary":
@@ -13,7 +14,7 @@ const Button = ({ title, type, onClick, icon, active }: { title: string; type: s
     };
 
     const getButtonStyle = () => {
-        let buttonStyle = `px-4 h-9 rounded-md ${themeFromType()} hover:shadow-sm`;
+        let buttonStyle = `px-4 h-9 rounded-md ${themeFromType()} hover:shadow-sm flex items-center gap-2`;
 
         if (active) {
             if (type === "secondary") {
@@ -22,17 +23,16 @@ const Button = ({ title, type, onClick, icon, active }: { title: string; type: s
             if (type === "primary") {
                 buttonStyle += " bg-sky-900 ";
             }
-
         }
 
         return buttonStyle;
     };
 
     return (
-        <button onClick={onClick} className={getButtonStyle()}>
+        <Link href={to} className={getButtonStyle()}>
             <FontAwesomeIcon icon={icon} /> {title}
-        </button>
+        </Link>
     );
 };
 
-export default Button;
+export default ButtonLink;

@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation';
 import useUser from '@/hooks/user';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SessionProvider, useSession } from 'next-auth/react';
+import ButtonLink from '../controls/link';
 
 const solutions = [
     { name: 'Perfil', description: '', href: '#', icon: UserIcon },
@@ -110,19 +111,16 @@ const Header = () => {
                                     <div className="hidden md:block">
                                         <div className="flex items-baseline space-x-4">
                                             {navigation.map((item) => (
-                                                <a
-                                                    key={item.name}
-                                                    href={item.href}
-                                                    className={classNames(
-                                                        item.current
-                                                            ? 'bg-sky-800 text-white'
-                                                            : 'text-sky-800 bg-gray-300 hover:bg-sky-800 hover:text-white',
-                                                        'rounded-md px-3 py-2 text-sm font-medium'
-                                                    )}
+                                                <ButtonLink
+                                                key={item.name}
+                                                to={item.href}
+                                                active={item.current}
+                                                title={item.name}
+                                                type='secondary'
+                                                icon={item.icon}
                                                     aria-current={item.current ? 'page' : undefined}
-                                                >
-                                                    {item.name}
-                                                </a>
+                                                />
+                                                
                                             ))}
                                         </div>
                                     </div>

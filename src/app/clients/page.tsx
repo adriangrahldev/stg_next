@@ -1,9 +1,10 @@
 "use client"
-import ClientsTable from "@/components/clients/clients-table";
 import Button from "@/components/controls/button";
 import { IClient } from "@/interfaces/client.interface";
 import { faFileExport, faFileImport, faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import { useEffect, useState } from "react";
+import ClientsTable from '@/components/clients/clients-table';
 
 
 
@@ -21,7 +22,7 @@ const ClientsPage = () => {
                 address: "Rua das Flores",
                 cep: "88000000",
                 state: "SC",
-                city: "Florianópolis"
+                city: "Florianópolis",
             },
             {
                 id: 2,
@@ -46,7 +47,7 @@ const ClientsPage = () => {
                     <p className="text-sm text-gray-500">Lista de clientes</p>
                 </div>
                 <div className="flex gap-2">
-                    <Button  title="Novo cliente" type="primary" onClick={() => {}} icon={faUserPlus} />
+                    <Button title="Novo cliente" type="primary" onClick={() => {}} icon={faUserPlus} />
                     <Button title="Importar" type="secondary" onClick={() => {}} icon={faFileImport} />
                     <Button title="Exportar" type="secondary" onClick={() => {}} icon={faFileExport} />
                 </div>

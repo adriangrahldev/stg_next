@@ -6,8 +6,9 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearSca
 import { Bar, Doughnut, Line, Pie } from "react-chartjs-2";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDollarSign, faListCheck } from '@fortawesome/free-solid-svg-icons';
-import ItemCard from '@/components/dashboard/item-card';
-import useUser from '@/hooks/user';
+
+import ItemCard from '../components/dashboard/item-card';
+import useUser from '../hooks/user';
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, PointElement, LineElement, BarElement);
 
@@ -23,9 +24,6 @@ export default function Dashboard() {
     expenses: 30000,
   };
 
-  const calculatePercentage = (value: number, total: number) => {
-    return ((value / total) * 100).toFixed(2);
-  };
 
   const options = {
     plugins: {

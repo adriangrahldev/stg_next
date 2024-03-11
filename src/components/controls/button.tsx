@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 
 const Button = ({ title, type, onClick, icon, active }: { title: string; type: string; onClick: () => void; icon: any; active?: boolean }) => {
     const themeFromType = () => {

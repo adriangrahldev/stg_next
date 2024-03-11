@@ -1,10 +1,12 @@
 import NextAuth from 'next-auth';
+import { Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { NextRequest } from 'next/server';
 
 
 declare module "next-auth" {
     interface User {
-      /** The user's postal address. */
+        /** The user's postal address. */
         email?: string | null,
         password?: string | null,
         role?: string | null,
@@ -13,10 +15,13 @@ declare module "next-auth" {
         lastName?: string | null,
         _id?: string | null,
     }
-  }
-  
+}
+
 
 export const { auth, handlers } = NextAuth({
+    pages: {
+        signIn: '/login',
+    },
     callbacks: {
         async signIn({ user, account, profile }) {
             return true
@@ -24,7 +29,8 @@ export const { auth, handlers } = NextAuth({
         async redirect({ baseUrl }) {
             return baseUrl
         },
-        async session({ session, token, user }:any) {
+        async session({ session, token, user }: any) {
+
             return {
                 ...session,
                 accessToken: token.accessToken,
@@ -39,8 +45,8 @@ export const { auth, handlers } = NextAuth({
                 },
             }
         },
-        async jwt({ token, user, account, profile, trigger }:any) {
-            
+        async jwt({ token, user, account, profile, trigger }: any) {
+
             // Agregar los datos adicionales al token aquí
 
             if (user) {
@@ -52,7 +58,8 @@ export const { auth, handlers } = NextAuth({
                 token.accessToken = user.accessToken;
             }
             return token
-        }
+        },
+
     },
     providers: [
         CredentialsProvider({
